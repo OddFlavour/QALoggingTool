@@ -23,6 +23,18 @@ export class DynFormGroupComponent implements OnInit {
   }
 
   deleteItem(itemId: string) {
-    // TODO(jackson): array is by reference, so if we re-assign the array then we lose the original
+    /*
+    Array is by reference, so if we re-assign the array then we lose the original.
+    In this case, we can no longer add new elements, since the array is passed to 'dyn-form' by reference
+     */
+    for (let i = 0; i < this.formItems.length; i++) {
+      const curr = this.formItems[i];
+      if (curr.id === itemId) {
+        this.formItems.splice(i, 1);
+
+        // Early exit
+        break;
+      }
+    }
   }
 }
