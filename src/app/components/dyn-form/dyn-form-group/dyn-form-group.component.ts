@@ -9,7 +9,12 @@ import {FormGroup} from '@angular/forms';
 export class DynFormGroupComponent implements OnInit {
 
   @Input() form: FormGroup;
-  @Input() formItems: any[];
+  @Input() formItems: {
+    // Required fields
+    type: string,
+    id: string,
+    label: string
+  }[];
 
   constructor() {
   }

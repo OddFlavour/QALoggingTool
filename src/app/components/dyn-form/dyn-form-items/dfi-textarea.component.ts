@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {DfiBaseComponent} from './dfi-base.component';
 
 @Component({
@@ -15,6 +15,15 @@ import {DfiBaseComponent} from './dfi-base.component';
 })
 
 export class DfiTextAreaComponent extends DfiBaseComponent implements OnInit {
+
+  @Input() formItem: {
+    // Required fields from 'dfi-base.component.ts'
+    type: string,
+    id: string,
+    label: string,
+
+    resize: string
+  };
 
   constructor() {
     super();
