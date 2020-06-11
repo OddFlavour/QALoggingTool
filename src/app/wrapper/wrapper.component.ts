@@ -14,6 +14,7 @@ fields to not populate properly.
  */
 export class WrapperComponent implements OnInit, DoCheck {
 
+  // TODO(jackson): perhaps these should be their own separate components?
   @ViewChild('newFieldInput') newFieldInput: ElementRef;
   @ViewChild('cpTextArea') cpTextArea: ElementRef;
 
@@ -41,16 +42,16 @@ export class WrapperComponent implements OnInit, DoCheck {
     this.cpTextArea.nativeElement.select();
   }
 
-  onKeyDown(event: KeyboardEvent) {
+  onNewFieldInputKeyDown(event: KeyboardEvent) {
     if (this.invalidNewField) {
       this.invalidNewField = false;
     }
 
     if (event.key === 'Enter') {
-      // Verify new item does not already exist and then add the new item
+      // Verify new item is NOT EMPTY and does not already exist and then add the new item
       const idValue = this.newFieldInput.nativeElement.value;
 
-      if (false === this.formItems.map((x) => x.id).includes(idValue)) {
+      if (idValue && false === this.formItems.map((x) => x.id).includes(idValue)) {
         this.formItems.push({
           type: 'textarea',
           id: idValue,

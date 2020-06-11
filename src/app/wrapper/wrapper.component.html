@@ -6,10 +6,10 @@
 
   <!-- New field input -->
   <input #newFieldInput type="text" class="form-control mb-2" placeholder="Press 'Enter' to add a new field"
-         (keydown)="onKeyDown($event)"
+         (keydown)="onNewFieldInputKeyDown($event)"
          [ngClass]="{ 'is-invalid': invalidNewField }"
   >
-  <span *ngIf="invalidNewField" class="invalid-feedback">Field already exists!</span>
+  <span *ngIf="invalidNewField" class="invalid-feedback">Field is empty or field already exists!</span>
 </div>
 
 <div class="clipboard-container col-sm-6">
