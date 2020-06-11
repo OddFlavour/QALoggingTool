@@ -24,8 +24,7 @@ export class WrapperComponent implements OnInit, DoCheck {
   invalidNewField = false;
 
   constructor(private issueLoggingService: IssueLoggingService,
-              private changeDetectorRef: ChangeDetectorRef,
-              private renderer2: Renderer2) {
+              private changeDetectorRef: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {

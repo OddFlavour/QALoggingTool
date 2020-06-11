@@ -1,8 +1,15 @@
 app-wrapper {
   height: 100vh;
+  overflow: auto;  /* Allow parent container to take on the size of the child */
 
   /* Flex Properties */
   display: flex;
-  /*justify-content: center;*/
-  /*align-items: center;*/
+  align-items: flex-start;
+}
+
+
+@media (max-width: 576px) {
+  app-wrapper {
+    flex-direction: column;  /* On smaller screens, everything will be displayed as a column */
+  }
 }

@@ -1,5 +1,7 @@
 # QALoggingTool
 
+NOTE: Node modules must be installed when project is newly cloned. This can be achieved by running `npm install`
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
 
 ## Development server
