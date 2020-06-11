@@ -1,15 +1,14 @@
-<div class="col-sm-6">
+<div class="col-sm-6 mt-2">
   <!-- Form fields -->
   <app-dyn-form [form]="form" [formItems]="formItems"></app-dyn-form>
+
+  <!-- Template Menu (Use/Export) -->
+  <app-template-menu></app-template-menu>
 
   <hr>
 
   <!-- New field input -->
-  <input #newFieldInput type="text" class="form-control mb-2" placeholder="Press 'Enter' to add a new field"
-         (keydown)="onNewFieldInputKeyDown($event)"
-         [ngClass]="{ 'is-invalid': invalidNewField }"
-  >
-  <span *ngIf="invalidNewField" class="invalid-feedback">Field is empty or field already exists!</span>
+  <app-new-field-adder [formItems]="formItems"></app-new-field-adder>
 </div>
 
 <!-- Clipboard (Need to pass in 'h-100' so child will behave properly) -->

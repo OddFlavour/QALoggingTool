@@ -9,6 +9,8 @@ import {DfiTextboxComponent} from './components/dyn-form/dyn-form-items/dfi-text
 import {WrapperComponent} from './wrapper/wrapper.component';
 import {DfiTextAreaComponent} from './components/dyn-form/dyn-form-items/dfi-textarea.component';
 import { ClipboardComponent } from './components/clipboard/clipboard.component';
+import { TemplateMenuComponent } from './components/template-menu/template-menu.component';
+import { NewFieldAdderComponent } from './components/new-field-adder/new-field-adder.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ClipboardComponent } from './components/clipboard/clipboard.component';
     DfiTextboxComponent,
     WrapperComponent,
     DfiTextAreaComponent,
-    ClipboardComponent
+    ClipboardComponent,
+    TemplateMenuComponent,
+    NewFieldAdderComponent
   ],
   imports: [
     BrowserModule,

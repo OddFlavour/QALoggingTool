@@ -12,7 +12,7 @@ export class ClipboardComponent implements OnInit, DoCheck {
 
   @ViewChild('clipboard') clipboard: ElementRef;
 
-  clipboardValue = '';
+  private clipboardValue = '';
 
   constructor() { }
 
@@ -21,7 +21,7 @@ export class ClipboardComponent implements OnInit, DoCheck {
 
   ngDoCheck(): void {
     // Update clipboard
-    this.clipboardValue = this.getClipboardValue(this.form.value);
+    this.clipboardValue = this.parseClipboard(this.form.value);
   }
 
   onClickClipboard() {
@@ -29,7 +29,11 @@ export class ClipboardComponent implements OnInit, DoCheck {
     this.clipboard.nativeElement.select();
   }
 
-  private getClipboardValue(formValue: any): string {
+  /**
+   * Parses clipboard's raw value into a presentable string
+   * @param formValue clipboard's raw value from form. Format: { 'key': 'value', ... }
+   */
+  private parseClipboard(formValue: any): string {
     let ret = '';
 
     // tslint:disable-next-line:forin
