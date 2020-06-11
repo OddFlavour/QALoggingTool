@@ -8,7 +8,7 @@ app-wrapper {
 }
 
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   app-wrapper {
     flex-direction: column;  /* On smaller screens, everything will be displayed as a column */
   }
