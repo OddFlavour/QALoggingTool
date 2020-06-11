@@ -1,0 +1,14 @@
+<div class="clipboard-container">
+  <!-- Clipboard header -->
+  <div class="p-0 m-0">
+    <h3>| Copy & Paste (Click to select all):</h3>
+    <hr>
+  </div>
+
+  <!-- Clipboard -->
+  <textarea #clipboard readonly class="clipboard"
+            [value]="clipboardValue"
+            (click)="onClickClipboard()"
+  >
+</textarea>
+</div>

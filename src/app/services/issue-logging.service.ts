@@ -11,6 +11,7 @@ export class IssueLoggingService {
     return [
       {
         type: 'textarea',
+        // id: 'build-info',
         id: 'Build Info',
         label: 'Build Info',
         resize: 'none'

@@ -8,6 +8,7 @@ import {DynFormGroupComponent} from './components/dyn-form/dyn-form-group/dyn-fo
 import {DfiTextboxComponent} from './components/dyn-form/dyn-form-items/dfi-textbox.component';
 import {WrapperComponent} from './wrapper/wrapper.component';
 import {DfiTextAreaComponent} from './components/dyn-form/dyn-form-items/dfi-textarea.component';
+import { ClipboardComponent } from './components/clipboard/clipboard.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {DfiTextAreaComponent} from './components/dyn-form/dyn-form-items/dfi-tex
     DynFormGroupComponent,
     DfiTextboxComponent,
     WrapperComponent,
-    DfiTextAreaComponent
+    DfiTextAreaComponent,
+    ClipboardComponent
   ],
   imports: [
     BrowserModule,

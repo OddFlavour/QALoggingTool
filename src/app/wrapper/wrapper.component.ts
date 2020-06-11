@@ -1,27 +1,25 @@
-import {ChangeDetectorRef, Component, DoCheck, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {IssueLoggingService} from '../services/issue-logging.service';
 import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-wrapper',
   templateUrl: './wrapper.component.html',
-  styleUrls: ['./wrapper.component.css']
+  styleUrls: []
 })
 
 /*
 This wrapper class is needed because if all the code is written in app.component.ts, the service will keep getting refreshed, causing input
 fields to not populate properly.
  */
-export class WrapperComponent implements OnInit, DoCheck {
+export class WrapperComponent implements OnInit {
 
   // TODO(jackson): perhaps these should be their own separate components?
   @ViewChild('newFieldInput') newFieldInput: ElementRef;
-  @ViewChild('cpTextArea') cpTextArea: ElementRef;
 
   form = new FormGroup({});
   formItems: any[];
 
-  cpTextAreaValue = '';
   invalidNewField = false;
 
   constructor(private issueLoggingService: IssueLoggingService,
@@ -32,25 +30,23 @@ export class WrapperComponent implements OnInit, DoCheck {
     this.formItems = this.issueLoggingService.getFormItems();
   }
 
-  ngDoCheck(): void {
-    // Update copy & paste text area
-    this.cpTextAreaValue = this.getCPTextAreaValue(this.form.value);
-  }
-
-  onClickCPTextArea() {
-    this.cpTextArea.nativeElement.focus();
-    this.cpTextArea.nativeElement.select();
-  }
-
   onNewFieldInputKeyDown(event: KeyboardEvent) {
     if (this.invalidNewField) {
       this.invalidNewField = false;
     }
 
     if (event.key === 'Enter') {
-      // Verify new item is NOT EMPTY and does not already exist and then add the new item
+      /*
+      Reason for not using 'this.generateId()': In the clipboard, it's using the key from the form, and
+      the key used directly corresponds to 'idValue'.
+
+      E.g If 'idValue == "Build Info"' and we use 'this.generateId()', then the clipboard will show 'build-info:'
+
+      If want to use 'this.generateId()' then the clipboard has to search for the label value.
+       */
       const idValue = this.newFieldInput.nativeElement.value;
 
+      // Verify new item does not already exist and then add the new item
       if (idValue && false === this.formItems.map((x) => x.id).includes(idValue)) {
         this.formItems.push({
           type: 'textarea',
@@ -74,17 +70,5 @@ export class WrapperComponent implements OnInit, DoCheck {
 
   private generateId(camelCasedString: string): string {
     return camelCasedString.split(' ').join('-').toLowerCase();
-  }
-
-  private getCPTextAreaValue(formValue: any): string {
-    let ret = '';
-
-    // tslint:disable-next-line:forin
-    for (const key in formValue) {
-      ret += key + ':\n';
-      ret += formValue[key] + '\n\n';
-    }
-
-    return ret.trim();
   }
 }

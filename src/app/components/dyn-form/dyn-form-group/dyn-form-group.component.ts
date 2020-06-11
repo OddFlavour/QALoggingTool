@@ -30,6 +30,7 @@ export class DynFormGroupComponent implements OnInit {
     for (let i = 0; i < this.formItems.length; i++) {
       const curr = this.formItems[i];
       if (curr.id === itemId) {
+        this.form.removeControl(curr.id);
         this.formItems.splice(i, 1);
 
         // Early exit

@@ -12,17 +12,7 @@
   <span *ngIf="invalidNewField" class="invalid-feedback">Field is empty or field already exists!</span>
 </div>
 
-<div class="clipboard-container col-sm-6">
-  <!-- Clipboard header -->
-  <div class="p-0 m-0">
-    <h3>| Copy & Paste (Click to select all):</h3>
-    <hr>
-  </div>
-
-  <!-- Clipboard -->
-  <textarea #cpTextArea readonly class="clipboard"
-            [value]="cpTextAreaValue"
-            (click)="onClickCPTextArea()"
-  >
-  </textarea>
+<!-- Clipboard (Need to pass in 'h-100' so child will behave properly) -->
+<div class="col-sm-6 h-100">
+  <app-clipboard [form]="form"></app-clipboard>
 </div>
