@@ -4,7 +4,7 @@ import {IssueLoggingService} from '../../services/issue-logging.service';
 @Component({
   selector: 'app-template-menu',
   templateUrl: './template-menu.component.html',
-  styleUrls: []
+  styleUrls: ['./template-menu.component.css']
 })
 export class TemplateMenuComponent implements OnInit {
 

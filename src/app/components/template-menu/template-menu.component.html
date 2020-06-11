@@ -1,3 +1,9 @@
-<input type="file" (change)="onFileChanged($event)">
-<button type="button" class="btn btn-primary" (click)="onClickUse()">Use Template</button>
-<button type="button" class="btn btn-dark">Export Template</button>
+<div class="row">
+  <div class="col-sm-12 mb-2">
+    <input type="file" (change)="onFileChanged($event)">
+  </div>
+  <div class="col-sm-12">
+    <button type="button" class="btn btn-primary" (click)="onClickUse()">Use</button>
+    <button type="button" class="btn btn-dark">Export</button>
+  </div>
+</div>

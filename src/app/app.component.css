@@ -1,4 +1,6 @@
 app-wrapper {
+  min-width: 286px;  /* Set a min width for things to look still good */
+
   height: 100vh;
   overflow: auto;  /* Allow parent container to take on the size of the child */
 
