@@ -15,7 +15,8 @@ export class NewFieldAdderComponent implements OnInit {
   */
   invalidNewField = false;
 
-  constructor(private applicationRef: ApplicationRef) { }
+  constructor(private applicationRef: ApplicationRef) {
+  }
 
   ngOnInit(): void {
   }
@@ -40,7 +41,7 @@ export class NewFieldAdderComponent implements OnInit {
       const idValue = this.newFieldInput.nativeElement.value;
 
       // Verify new item does not already exist and then add the new item
-      if (idValue && false === this.formItems.map((x) => x.id).includes(idValue)) {
+      if (idValue && this.isValidFieldName(idValue)) {
         this.formItems.push({
           type: 'textarea',
           id: idValue,
@@ -65,6 +66,33 @@ export class NewFieldAdderComponent implements OnInit {
 
       // TODO(jackson): Transfer focus to the new field
     }
+  }
+
+  private isValidFieldName(fieldName: string): boolean {
+    // Not a duplicate
+    if (true === this.formItems.map((x) => x.id).includes(fieldName)) {
+      return false;
+    }
+
+    // Not just a number, includes at least one letter *Helps keep clipboard in order
+    // Implementing this way with charCode is a lot faster than regex
+    let temp = false;
+    for (let i = 0; i < fieldName.length; i++) {
+      const code = fieldName.charCodeAt(i);
+
+      // Found a letter
+      if ((code >= 97 && code <= 122)
+        || (code >= 65 && code <= 90)) {
+        temp = true;
+        break;
+      }
+    }
+    if (!temp) {
+      return false;
+    }
+
+    // Default to it is valid
+    return true;
   }
 
   private generateId(camelCasedString: string): string {

@@ -24,17 +24,19 @@ export class TemplateMenuComponent implements OnInit {
   }
 
   onClickUse() {
-    const fileReader = new FileReader();
+    if (this.file) {
+      const fileReader = new FileReader();
 
-    // Callback for once file reader has read file
-    fileReader.onload = (e) => {
-      const parsing = JSON.parse(fileReader.result as string);
+      // Callback for once file reader has read file
+      fileReader.onload = (e) => {
+        const parsing = JSON.parse(fileReader.result as string);
 
-      this.issueLoggingService.dataChange(parsing);
-    };
+        this.issueLoggingService.dataChange(parsing);
+      };
 
-    // Initiate file read
-    fileReader.readAsText(this.file);
+      // Initiate file read
+      fileReader.readAsText(this.file);
+    }
   }
 
   onClickExport() {

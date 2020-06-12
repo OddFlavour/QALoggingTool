@@ -2,4 +2,4 @@
        (keydown)="onInputKeyDown($event)"
        [ngClass]="{ 'is-invalid': invalidNewField }"
 >
-<span *ngIf="invalidNewField" class="invalid-feedback">Field is empty or field already exists!</span>
+<span *ngIf="invalidNewField" class="invalid-feedback">Field either is empty, already exists, or is a number!</span>
