@@ -12,7 +12,10 @@ export class ClipboardComponent implements OnInit, DoCheck {
 
   @ViewChild('clipboard') clipboard: ElementRef;
 
-  private clipboardValue = '';
+  /*
+  Cannot be private if it is needed in HTML
+  */
+  clipboardValue = '';
 
   constructor() { }
 

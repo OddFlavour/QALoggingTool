@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {IssueLoggingService} from '../../services/issue-logging.service';
+import {saveAs} from 'file-saver';
 
 @Component({
   selector: 'app-template-menu',
@@ -32,5 +33,19 @@ export class TemplateMenuComponent implements OnInit {
 
     // Initiate file read
     fileReader.readAsText(this.file);
+  }
+
+  onClickExport() {
+    const blob = new Blob(['Hello, world!'], {type: 'text/plain;charset=utf-8'});
+    saveAs(blob, 'qa-logging-template.txt');
+
+    // const url = URL.createObjectURL(blob);
+    // const a = document.createElement('a');
+    // a.href = url;
+    // a.download = 'fileName.txt';
+    // a.click();
+    // setTimeout((...args) => {
+    //   window.URL.revokeObjectURL(url);
+    // }, 0);
   }
 }

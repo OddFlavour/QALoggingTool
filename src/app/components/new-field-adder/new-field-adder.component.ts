@@ -10,7 +10,10 @@ export class NewFieldAdderComponent implements OnInit {
   @Input() formItems: any[];
   @ViewChild('newFieldInput') newFieldInput: ElementRef;
 
-  private invalidNewField = false;
+  /*
+  Cannot be private if it is needed in HTML
+  */
+  invalidNewField = false;
 
   constructor(private applicationRef: ApplicationRef) { }
 
