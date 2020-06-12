@@ -11,3 +11,13 @@
 
   flex: 2;  /* Priority given, so this element can stretch */
 }
+
+.header-text {
+  border-style: none none none solid;
+  padding-left: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+hr {
+  margin-top: 0;
+}
