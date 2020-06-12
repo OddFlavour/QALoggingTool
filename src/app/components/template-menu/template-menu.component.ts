@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {IssueLoggingService} from '../../services/issue-logging.service';
 import {saveAs} from 'file-saver';
 
@@ -8,6 +8,8 @@ import {saveAs} from 'file-saver';
   styleUrls: ['./template-menu.component.css']
 })
 export class TemplateMenuComponent implements OnInit {
+
+  @Input() formItems: any[];
 
   private file: File;
 
@@ -36,7 +38,7 @@ export class TemplateMenuComponent implements OnInit {
   }
 
   onClickExport() {
-    const blob = new Blob(['Hello, world!'], {type: 'text/plain;charset=utf-8'});
+    const blob = new Blob([this.generateTemplate()], {type: 'text/plain;charset=utf-8'});
     saveAs(blob, 'qa-logging-template.txt');
 
     // const url = URL.createObjectURL(blob);
@@ -47,5 +49,9 @@ export class TemplateMenuComponent implements OnInit {
     // setTimeout((...args) => {
     //   window.URL.revokeObjectURL(url);
     // }, 0);
+  }
+
+  private generateTemplate(): string {
+    return JSON.stringify(this.formItems);
   }
 }
