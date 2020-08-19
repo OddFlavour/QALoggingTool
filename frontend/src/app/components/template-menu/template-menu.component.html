@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-sm-12 mb-2">
+    <input type="file" (change)="onFileChanged($event)">
+  </div>
+  <div class="col-sm-12">
+    <button type="button" class="btn btn-primary" (click)="onClickUse()">Use</button>
+    <button type="button" class="btn btn-dark" (click)="onClickExport()">Export</button>
+    <div ngbDropdown class="d-inline-block" *ngIf="templates">
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Templates</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button ngbDropdownItem
+                *ngFor="let template of templates"
+                (click)="onTemplateSelection(template)"
+        >
+          {{ template.name }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

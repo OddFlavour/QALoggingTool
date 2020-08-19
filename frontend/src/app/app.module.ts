@@ -11,6 +11,9 @@ import {DfiTextAreaComponent} from './components/dyn-form/dyn-form-items/dfi-tex
 import { ClipboardComponent } from './components/clipboard/clipboard.component';
 import { TemplateMenuComponent } from './components/template-menu/template-menu.component';
 import { NewFieldAdderComponent } from './components/new-field-adder/new-field-adder.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { NewFieldAdderComponent } from './components/new-field-adder/new-field-a
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
