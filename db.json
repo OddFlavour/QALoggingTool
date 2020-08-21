@@ -1,0 +1,7 @@
+[{
+  "_id": {
+    "$oid": "5f346c9022c0d305b9d76069"
+  },
+  "name": "Basic",
+  "json": "[{\"type\":\"textarea\",\"id\":\"Build Info\",\"label\":\"Build Info\",\"resize\":\"none\"},{\"type\":\"textarea\",\"id\":\"Device Info\",\"label\":\"Device Info\",\"resize\":\"none\"},{\"type\":\"textarea\",\"id\":\"Summary\",\"label\":\"Summary\",\"resize\":\"none\"},{\"type\":\"textarea\",\"id\":\"Chance to Reproduce\",\"label\":\"Chance to Reproduce\",\"resize\":\"none\"},{\"type\":\"textarea\",\"id\":\"Steps\",\"label\":\"Steps\",\"resize\":\"none\"},{\"type\":\"textarea\",\"id\":\"Expected\",\"label\":\"Expected\",\"resize\":\"none\"},{\"type\":\"textarea\",\"id\":\"Actual\",\"label\":\"Actual\",\"resize\":\"none\"}]"
+}]
