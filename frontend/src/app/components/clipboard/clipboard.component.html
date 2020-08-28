@@ -5,9 +5,9 @@
     <hr>
   </div>
 
-  <!-- Clipboard -->
+  <!-- Clipboard (with binding to form.value) -->
   <textarea #clipboard readonly class="clipboard"
-            [value]="clipboardValue"
+            [value]="parseClipboard(form.value)"
             (click)="onClickClipboard()"
   >
 </textarea>
